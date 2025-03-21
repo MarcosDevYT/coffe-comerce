@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 import TextContent from "../ui/textContent";
 import { exploreData } from "@/data";

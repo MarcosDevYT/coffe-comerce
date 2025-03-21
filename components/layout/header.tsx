@@ -56,7 +56,7 @@ const Header = () => {
           `}
       >
         <Link className="font-bold text-xl" href={"/"}>
-          Olivia's Coffee
+          Olivia&apos;s Coffee
         </Link>
 
         <nav className="flex flex-col md:flex-row gap-8 md:items-center relative">

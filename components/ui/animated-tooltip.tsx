@@ -21,7 +21,7 @@ export const AnimatedTooltip = ({
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const springConfig = { stiffness: 100, damping: 5 };
-  const x = useMotionValue(0); // going to set this value on mouse move
+  const x = useMotionValue(0);
   // rotate the tooltip
   const rotate = useSpring(
     useTransform(x, [-100, 100], [-45, 45]),
@@ -32,14 +32,17 @@ export const AnimatedTooltip = ({
     useTransform(x, [-100, 100], [-50, 50]),
     springConfig
   );
-  const handleMouseMove = (event: any) => {
-    const halfWidth = event.target.offsetWidth / 2;
-    x.set(event.nativeEvent.offsetX - halfWidth); // set the x value, which is then used in transform and rotate
+  const handleMouseMove = (
+    event: React.MouseEvent<HTMLImageElement, MouseEvent>
+  ) => {
+    const target = event.target as HTMLImageElement;
+    const halfWidth = target.offsetWidth / 2;
+    x.set(event.nativeEvent.offsetX - halfWidth);
   };
 
   return (
     <>
-      {items.map((item, idx) => (
+      {items.map((item) => (
         <div
           className="-mr-4  relative group"
           key={item.name}
