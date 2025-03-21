@@ -1,7 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const TextContent = ({ title, content, className }) => {
+interface props {
+  title: string;
+  content: string;
+  className?: string;
+}
+
+const TextContent = ({ title, content, className }: props) => {
   return (
     <>
       <h2 className="text-4xl font-bold tracking-tight">{title}</h2>
